@@ -2,7 +2,7 @@
 
 Official Java SDK for [TemplateFox](https://pdftemplateapi.com) - Generate PDFs from HTML templates via API.
 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.templatefox/sdk/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.templatefox/sdk)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.templatefoxpdf/sdk/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.templatefoxpdf/sdk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Installation
@@ -11,7 +11,7 @@ Official Java SDK for [TemplateFox](https://pdftemplateapi.com) - Generate PDFs 
 
 ```xml
 <dependency>
-    <groupId>com.templatefox</groupId>
+    <groupId>io.github.templatefoxpdf</groupId>
     <artifactId>sdk</artifactId>
     <version>1.0.0</version>
 </dependency>
@@ -20,7 +20,7 @@ Official Java SDK for [TemplateFox](https://pdftemplateapi.com) - Generate PDFs 
 ### Gradle
 
 ```groovy
-implementation 'com.templatefox:sdk:1.0.0'
+implementation 'io.github.templatefoxpdf:sdk:1.0.0'
 ```
 
 ## Quick Start
