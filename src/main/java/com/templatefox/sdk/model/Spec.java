@@ -19,7 +19,14 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.templatefox.sdk.model.TemplateFieldSpec;
+import java.util.Arrays;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -45,130 +52,135 @@ import com.templatefox.sdk.ApiClient;
 import com.templatefox.sdk.JSON;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
-@JsonDeserialize(using=LocationInner.LocationInnerDeserializer.class)
-@JsonSerialize(using = LocationInner.LocationInnerSerializer.class)
-public class LocationInner extends AbstractOpenApiSchema {
-    private static final Logger log = Logger.getLogger(LocationInner.class.getName());
+@JsonDeserialize(using=Spec.SpecDeserializer.class)
+@JsonSerialize(using = Spec.SpecSerializer.class)
+public class Spec extends AbstractOpenApiSchema {
+    private static final Logger log = Logger.getLogger(Spec.class.getName());
 
-    public static class LocationInnerSerializer extends StdSerializer<LocationInner> {
-        public LocationInnerSerializer(Class<LocationInner> t) {
+    public static class SpecSerializer extends StdSerializer<Spec> {
+        public SpecSerializer(Class<Spec> t) {
             super(t);
         }
 
-        public LocationInnerSerializer() {
+        public SpecSerializer() {
             this(null);
         }
 
         @Override
-        public void serialize(LocationInner value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+        public void serialize(Spec value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
             jgen.writeObject(value.getActualInstance());
         }
     }
 
-    public static class LocationInnerDeserializer extends StdDeserializer<LocationInner> {
-        public LocationInnerDeserializer() {
-            this(LocationInner.class);
+    public static class SpecDeserializer extends StdDeserializer<Spec> {
+        public SpecDeserializer() {
+            this(Spec.class);
         }
 
-        public LocationInnerDeserializer(Class<?> vc) {
+        public SpecDeserializer(Class<?> vc) {
             super(vc);
         }
 
         @Override
-        public LocationInner deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+        public Spec deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
             JsonNode tree = jp.readValueAsTree();
 
             Object deserialized = null;
-            // deserialize Integer
+            // deserialize List<TemplateFieldSpec>
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(Integer.class);
-                LocationInner ret = new LocationInner();
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(List<TemplateFieldSpec>.class);
+                Spec ret = new Spec();
                 ret.setActualInstance(deserialized);
                 return ret;
             } catch (Exception e) {
                 // deserialization failed, continue, log to help debugging
-                log.log(Level.FINER, "Input data does not match 'LocationInner'", e);
+                log.log(Level.FINER, "Input data does not match 'Spec'", e);
             }
 
-            // deserialize String
+            // deserialize TemplateFieldSpec
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(String.class);
-                LocationInner ret = new LocationInner();
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(TemplateFieldSpec.class);
+                Spec ret = new Spec();
                 ret.setActualInstance(deserialized);
                 return ret;
             } catch (Exception e) {
                 // deserialization failed, continue, log to help debugging
-                log.log(Level.FINER, "Input data does not match 'LocationInner'", e);
+                log.log(Level.FINER, "Input data does not match 'Spec'", e);
             }
 
-            throw new IOException("Failed deserialization for LocationInner: no match found");
+            throw new IOException("Failed deserialization for Spec: no match found");
         }
 
         /**
          * Handle deserialization of the 'null' value.
          */
         @Override
-        public LocationInner getNullValue(DeserializationContext ctxt) throws JsonMappingException {
-            throw new JsonMappingException(ctxt.getParser(), "LocationInner cannot be null");
+        public Spec getNullValue(DeserializationContext ctxt) throws JsonMappingException {
+            return null;
         }
     }
 
     // store a list of schema names defined in anyOf
     public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
 
-    public LocationInner() {
-        super("anyOf", Boolean.FALSE);
+    public Spec() {
+        super("anyOf", Boolean.TRUE);
     }
 
-    public LocationInner(Integer o) {
-        super("anyOf", Boolean.FALSE);
+    public Spec(List<TemplateFieldSpec> o) {
+        super("anyOf", Boolean.TRUE);
         setActualInstance(o);
     }
 
-    public LocationInner(String o) {
-        super("anyOf", Boolean.FALSE);
+    public Spec(TemplateFieldSpec o) {
+        super("anyOf", Boolean.TRUE);
         setActualInstance(o);
     }
 
     static {
-        schemas.put("Integer", Integer.class);
-        schemas.put("String", String.class);
-        JSON.registerDescendants(LocationInner.class, Collections.unmodifiableMap(schemas));
+        schemas.put("List<TemplateFieldSpec>", List<TemplateFieldSpec>.class);
+        schemas.put("TemplateFieldSpec", TemplateFieldSpec.class);
+        JSON.registerDescendants(Spec.class, Collections.unmodifiableMap(schemas));
     }
 
     @Override
     public Map<String, Class<?>> getSchemas() {
-        return LocationInner.schemas;
+        return Spec.schemas;
     }
 
     /**
      * Set the instance that matches the anyOf child schema, check
      * the instance parameter is valid against the anyOf child schemas:
-     * Integer, String
+     * List<TemplateFieldSpec>, TemplateFieldSpec
      *
      * It could be an instance of the 'anyOf' schemas.
      * The anyOf child schemas may themselves be a composed schema (allOf, anyOf, anyOf).
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (JSON.isInstanceOf(Integer.class, instance, new HashSet<Class<?>>())) {
+        if (instance == null) {
+           super.setActualInstance(instance);
+           return;
+        }
+
+        if (JSON.isInstanceOf(List<TemplateFieldSpec>.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (JSON.isInstanceOf(String.class, instance, new HashSet<Class<?>>())) {
+        if (JSON.isInstanceOf(TemplateFieldSpec.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be Integer, String");
+        throw new RuntimeException("Invalid instance type. Must be List<TemplateFieldSpec>, TemplateFieldSpec");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * Integer, String
+     * List<TemplateFieldSpec>, TemplateFieldSpec
      *
-     * @return The actual instance (Integer, String)
+     * @return The actual instance (List<TemplateFieldSpec>, TemplateFieldSpec)
      */
     @Override
     public Object getActualInstance() {
@@ -176,25 +188,25 @@ public class LocationInner extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `Integer`. If the actual instance is not `Integer`,
+     * Get the actual instance of `List<TemplateFieldSpec>`. If the actual instance is not `List<TemplateFieldSpec>`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `Integer`
-     * @throws ClassCastException if the instance is not `Integer`
+     * @return The actual instance of `List<TemplateFieldSpec>`
+     * @throws ClassCastException if the instance is not `List<TemplateFieldSpec>`
      */
-    public Integer getInteger() throws ClassCastException {
-        return (Integer)super.getActualInstance();
+    public List<TemplateFieldSpec> getList<TemplateFieldSpec>() throws ClassCastException {
+        return (List<TemplateFieldSpec>)super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `String`. If the actual instance is not `String`,
+     * Get the actual instance of `TemplateFieldSpec`. If the actual instance is not `TemplateFieldSpec`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `String`
-     * @throws ClassCastException if the instance is not `String`
+     * @return The actual instance of `TemplateFieldSpec`
+     * @throws ClassCastException if the instance is not `TemplateFieldSpec`
      */
-    public String getString() throws ClassCastException {
-        return (String)super.getActualInstance();
+    public TemplateFieldSpec getTemplateFieldSpec() throws ClassCastException {
+        return (TemplateFieldSpec)super.getActualInstance();
     }
 
 

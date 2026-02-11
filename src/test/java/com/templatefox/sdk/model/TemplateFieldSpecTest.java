@@ -18,34 +18,47 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.templatefox.sdk.model.TemplateListItem;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for TemplatesListResponse
+ * Model tests for TemplateFieldSpec
  */
-class TemplatesListResponseTest {
-    private final TemplatesListResponse model = new TemplatesListResponse();
+class TemplateFieldSpecTest {
+    private final TemplateFieldSpec model = new TemplateFieldSpec();
 
     /**
-     * Model tests for TemplatesListResponse
+     * Model tests for TemplateFieldSpec
      */
     @Test
-    void testTemplatesListResponse() {
-        // TODO: test TemplatesListResponse
+    void testTemplateFieldSpec() {
+        // TODO: test TemplateFieldSpec
     }
 
     /**
-     * Test the property 'templates'
+     * Test the property 'name'
      */
     @Test
-    void templatesTest() {
-        // TODO: test templates
+    void nameTest() {
+        // TODO: test name
+    }
+
+    /**
+     * Test the property 'label'
+     */
+    @Test
+    void labelTest() {
+        // TODO: test label
+    }
+
+    /**
+     * Test the property 'type'
+     */
+    @Test
+    void typeTest() {
+        // TODO: test type
     }
 
 }

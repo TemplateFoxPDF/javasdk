@@ -30,66 +30,37 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import com.templatefox.sdk.ApiClient;
 /**
- * Template item in list response
+ * Spec for array item fields
  */
 @JsonPropertyOrder({
-  TemplateListItem.JSON_PROPERTY_ID,
-  TemplateListItem.JSON_PROPERTY_NAME,
-  TemplateListItem.JSON_PROPERTY_CREATED_AT,
-  TemplateListItem.JSON_PROPERTY_UPDATED_AT
+  TemplateFieldSpec.JSON_PROPERTY_NAME,
+  TemplateFieldSpec.JSON_PROPERTY_LABEL,
+  TemplateFieldSpec.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
-public class TemplateListItem {
-  public static final String JSON_PROPERTY_ID = "id";
-  @jakarta.annotation.Nonnull
-  private String id;
-
+public class TemplateFieldSpec {
   public static final String JSON_PROPERTY_NAME = "name";
   @jakarta.annotation.Nonnull
   private String name;
 
-  public static final String JSON_PROPERTY_CREATED_AT = "created_at";
+  public static final String JSON_PROPERTY_LABEL = "label";
   @jakarta.annotation.Nonnull
-  private String createdAt;
+  private String label;
 
-  public static final String JSON_PROPERTY_UPDATED_AT = "updated_at";
-  @jakarta.annotation.Nonnull
-  private String updatedAt;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nullable
+  private String type = "text";
 
-  public TemplateListItem() { 
+  public TemplateFieldSpec() { 
   }
 
-  public TemplateListItem id(@jakarta.annotation.Nonnull String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * Template short ID (12 characters)
-   * @return id
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
-    return id;
-  }
-
-
-  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(@jakarta.annotation.Nonnull String id) {
-    this.id = id;
-  }
-
-
-  public TemplateListItem name(@jakarta.annotation.Nonnull String name) {
+  public TemplateFieldSpec name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Template name
+   * Field name
    * @return name
    */
   @jakarta.annotation.Nonnull
@@ -107,56 +78,56 @@ public class TemplateListItem {
   }
 
 
-  public TemplateListItem createdAt(@jakarta.annotation.Nonnull String createdAt) {
-    this.createdAt = createdAt;
+  public TemplateFieldSpec label(@jakarta.annotation.Nonnull String label) {
+    this.label = label;
     return this;
   }
 
   /**
-   * ISO 8601 timestamp
-   * @return createdAt
+   * Field label
+   * @return label
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(value = JSON_PROPERTY_CREATED_AT, required = true)
+  @JsonProperty(value = JSON_PROPERTY_LABEL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getCreatedAt() {
-    return createdAt;
+  public String getLabel() {
+    return label;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_CREATED_AT, required = true)
+  @JsonProperty(value = JSON_PROPERTY_LABEL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedAt(@jakarta.annotation.Nonnull String createdAt) {
-    this.createdAt = createdAt;
+  public void setLabel(@jakarta.annotation.Nonnull String label) {
+    this.label = label;
   }
 
 
-  public TemplateListItem updatedAt(@jakarta.annotation.Nonnull String updatedAt) {
-    this.updatedAt = updatedAt;
+  public TemplateFieldSpec type(@jakarta.annotation.Nullable String type) {
+    this.type = type;
     return this;
   }
 
   /**
-   * ISO 8601 timestamp
-   * @return updatedAt
+   * Field type: text, number
+   * @return type
    */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(value = JSON_PROPERTY_UPDATED_AT, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getUpdatedAt() {
-    return updatedAt;
+  @jakarta.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getType() {
+    return type;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_UPDATED_AT, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUpdatedAt(@jakarta.annotation.Nonnull String updatedAt) {
-    this.updatedAt = updatedAt;
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setType(@jakarta.annotation.Nullable String type) {
+    this.type = type;
   }
 
 
   /**
-   * Return true if this TemplateListItem object is equal to o.
+   * Return true if this TemplateFieldSpec object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -166,26 +137,24 @@ public class TemplateListItem {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TemplateListItem templateListItem = (TemplateListItem) o;
-    return Objects.equals(this.id, templateListItem.id) &&
-        Objects.equals(this.name, templateListItem.name) &&
-        Objects.equals(this.createdAt, templateListItem.createdAt) &&
-        Objects.equals(this.updatedAt, templateListItem.updatedAt);
+    TemplateFieldSpec templateFieldSpec = (TemplateFieldSpec) o;
+    return Objects.equals(this.name, templateFieldSpec.name) &&
+        Objects.equals(this.label, templateFieldSpec.label) &&
+        Objects.equals(this.type, templateFieldSpec.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, createdAt, updatedAt);
+    return Objects.hash(name, label, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TemplateListItem {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("class TemplateFieldSpec {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    label: ").append(toIndentedString(label)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -233,24 +202,19 @@ public class TemplateListItem {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `id` to the URL query string
-    if (getId() != null) {
-      joiner.add(String.format(java.util.Locale.ROOT, "%sid%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getId()))));
-    }
-
     // add `name` to the URL query string
     if (getName() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sname%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getName()))));
     }
 
-    // add `created_at` to the URL query string
-    if (getCreatedAt() != null) {
-      joiner.add(String.format(java.util.Locale.ROOT, "%screated_at%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getCreatedAt()))));
+    // add `label` to the URL query string
+    if (getLabel() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%slabel%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getLabel()))));
     }
 
-    // add `updated_at` to the URL query string
-    if (getUpdatedAt() != null) {
-      joiner.add(String.format(java.util.Locale.ROOT, "%supdated_at%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getUpdatedAt()))));
+    // add `type` to the URL query string
+    if (getType() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%stype%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getType()))));
     }
 
     return joiner.toString();
