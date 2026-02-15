@@ -5,7 +5,7 @@
     <artifactId>sdk</artifactId>
     <packaging>jar</packaging>
     <name>sdk</name>
-    <version>1.6.0</version>
+    <version>1.6.1</version>
     <url>https://github.com/TemplateFoxPDF/javasdk</url>
     <description>Official TemplateFox Java SDK - Generate PDFs from HTML templates</description>
     <scm>
