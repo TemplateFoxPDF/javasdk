@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.templatefox.sdk.model.Transaction;
+import com.templatefox.sdk.model.JobStatusResponse;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -33,19 +33,19 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import com.templatefox.sdk.ApiClient;
 /**
- * Response for transactions list endpoint
+ * Response for job list query
  */
 @JsonPropertyOrder({
-  TransactionsResponse.JSON_PROPERTY_TRANSACTIONS,
-  TransactionsResponse.JSON_PROPERTY_TOTAL,
-  TransactionsResponse.JSON_PROPERTY_LIMIT,
-  TransactionsResponse.JSON_PROPERTY_OFFSET
+  JobListResponse.JSON_PROPERTY_JOBS,
+  JobListResponse.JSON_PROPERTY_TOTAL,
+  JobListResponse.JSON_PROPERTY_LIMIT,
+  JobListResponse.JSON_PROPERTY_OFFSET
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
-public class TransactionsResponse {
-  public static final String JSON_PROPERTY_TRANSACTIONS = "transactions";
+public class JobListResponse {
+  public static final String JSON_PROPERTY_JOBS = "jobs";
   @jakarta.annotation.Nonnull
-  private List<Transaction> transactions = new ArrayList<>();
+  private List<JobStatusResponse> jobs = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TOTAL = "total";
   @jakarta.annotation.Nonnull
@@ -59,48 +59,48 @@ public class TransactionsResponse {
   @jakarta.annotation.Nonnull
   private Integer offset;
 
-  public TransactionsResponse() { 
+  public JobListResponse() { 
   }
 
-  public TransactionsResponse transactions(@jakarta.annotation.Nonnull List<Transaction> transactions) {
-    this.transactions = transactions;
+  public JobListResponse jobs(@jakarta.annotation.Nonnull List<JobStatusResponse> jobs) {
+    this.jobs = jobs;
     return this;
   }
 
-  public TransactionsResponse addTransactionsItem(Transaction transactionsItem) {
-    if (this.transactions == null) {
-      this.transactions = new ArrayList<>();
+  public JobListResponse addJobsItem(JobStatusResponse jobsItem) {
+    if (this.jobs == null) {
+      this.jobs = new ArrayList<>();
     }
-    this.transactions.add(transactionsItem);
+    this.jobs.add(jobsItem);
     return this;
   }
 
   /**
-   * Get transactions
-   * @return transactions
+   * List of jobs
+   * @return jobs
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(value = JSON_PROPERTY_TRANSACTIONS, required = true)
+  @JsonProperty(value = JSON_PROPERTY_JOBS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<Transaction> getTransactions() {
-    return transactions;
+  public List<JobStatusResponse> getJobs() {
+    return jobs;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_TRANSACTIONS, required = true)
+  @JsonProperty(value = JSON_PROPERTY_JOBS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTransactions(@jakarta.annotation.Nonnull List<Transaction> transactions) {
-    this.transactions = transactions;
+  public void setJobs(@jakarta.annotation.Nonnull List<JobStatusResponse> jobs) {
+    this.jobs = jobs;
   }
 
 
-  public TransactionsResponse total(@jakarta.annotation.Nonnull Integer total) {
+  public JobListResponse total(@jakarta.annotation.Nonnull Integer total) {
     this.total = total;
     return this;
   }
 
   /**
-   * Total number of transactions
+   * Total number of jobs matching filter
    * @return total
    */
   @jakarta.annotation.Nonnull
@@ -118,13 +118,13 @@ public class TransactionsResponse {
   }
 
 
-  public TransactionsResponse limit(@jakarta.annotation.Nonnull Integer limit) {
+  public JobListResponse limit(@jakarta.annotation.Nonnull Integer limit) {
     this.limit = limit;
     return this;
   }
 
   /**
-   * Number of records returned
+   * Page size
    * @return limit
    */
   @jakarta.annotation.Nonnull
@@ -142,13 +142,13 @@ public class TransactionsResponse {
   }
 
 
-  public TransactionsResponse offset(@jakarta.annotation.Nonnull Integer offset) {
+  public JobListResponse offset(@jakarta.annotation.Nonnull Integer offset) {
     this.offset = offset;
     return this;
   }
 
   /**
-   * Number of records skipped
+   * Page offset
    * @return offset
    */
   @jakarta.annotation.Nonnull
@@ -167,7 +167,7 @@ public class TransactionsResponse {
 
 
   /**
-   * Return true if this TransactionsResponse object is equal to o.
+   * Return true if this JobListResponse object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -177,23 +177,23 @@ public class TransactionsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TransactionsResponse transactionsResponse = (TransactionsResponse) o;
-    return Objects.equals(this.transactions, transactionsResponse.transactions) &&
-        Objects.equals(this.total, transactionsResponse.total) &&
-        Objects.equals(this.limit, transactionsResponse.limit) &&
-        Objects.equals(this.offset, transactionsResponse.offset);
+    JobListResponse jobListResponse = (JobListResponse) o;
+    return Objects.equals(this.jobs, jobListResponse.jobs) &&
+        Objects.equals(this.total, jobListResponse.total) &&
+        Objects.equals(this.limit, jobListResponse.limit) &&
+        Objects.equals(this.offset, jobListResponse.offset);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(transactions, total, limit, offset);
+    return Objects.hash(jobs, total, limit, offset);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TransactionsResponse {\n");
-    sb.append("    transactions: ").append(toIndentedString(transactions)).append("\n");
+    sb.append("class JobListResponse {\n");
+    sb.append("    jobs: ").append(toIndentedString(jobs)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
@@ -244,11 +244,11 @@ public class TransactionsResponse {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `transactions` to the URL query string
-    if (getTransactions() != null) {
-      for (int i = 0; i < getTransactions().size(); i++) {
-        if (getTransactions().get(i) != null) {
-          joiner.add(getTransactions().get(i).toUrlQueryString(String.format(java.util.Locale.ROOT, "%stransactions%s%s", prefix, suffix,
+    // add `jobs` to the URL query string
+    if (getJobs() != null) {
+      for (int i = 0; i < getJobs().size(); i++) {
+        if (getJobs().get(i) != null) {
+          joiner.add(getJobs().get(i).toUrlQueryString(String.format(java.util.Locale.ROOT, "%sjobs%s%s", prefix, suffix,
           "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }

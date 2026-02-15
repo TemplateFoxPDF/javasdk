@@ -24,90 +24,86 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.templatefox.sdk.model.JobStatus;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 import com.templatefox.sdk.ApiClient;
 /**
- * Response for URL export type
+ * Response for async PDF creation
  */
 @JsonPropertyOrder({
-  CreatePdfResponse.JSON_PROPERTY_URL,
-  CreatePdfResponse.JSON_PROPERTY_FILENAME,
-  CreatePdfResponse.JSON_PROPERTY_CREDITS_REMAINING,
-  CreatePdfResponse.JSON_PROPERTY_EXPIRES_IN
+  CreateAsyncPdfResponse.JSON_PROPERTY_JOB_ID,
+  CreateAsyncPdfResponse.JSON_PROPERTY_STATUS,
+  CreateAsyncPdfResponse.JSON_PROPERTY_CREDITS_REMAINING
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
-public class CreatePdfResponse {
-  public static final String JSON_PROPERTY_URL = "url";
+public class CreateAsyncPdfResponse {
+  public static final String JSON_PROPERTY_JOB_ID = "job_id";
   @jakarta.annotation.Nonnull
-  private String url;
+  private String jobId;
 
-  public static final String JSON_PROPERTY_FILENAME = "filename";
+  public static final String JSON_PROPERTY_STATUS = "status";
   @jakarta.annotation.Nonnull
-  private String filename;
+  private JobStatus status;
 
   public static final String JSON_PROPERTY_CREDITS_REMAINING = "credits_remaining";
   @jakarta.annotation.Nonnull
   private Integer creditsRemaining;
 
-  public static final String JSON_PROPERTY_EXPIRES_IN = "expires_in";
-  @jakarta.annotation.Nonnull
-  private Integer expiresIn;
-
-  public CreatePdfResponse() { 
+  public CreateAsyncPdfResponse() { 
   }
 
-  public CreatePdfResponse url(@jakarta.annotation.Nonnull String url) {
-    this.url = url;
+  public CreateAsyncPdfResponse jobId(@jakarta.annotation.Nonnull String jobId) {
+    this.jobId = jobId;
     return this;
   }
 
   /**
-   * Signed URL to download the PDF (expires after specified time)
-   * @return url
+   * Unique job identifier for status polling
+   * @return jobId
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(value = JSON_PROPERTY_URL, required = true)
+  @JsonProperty(value = JSON_PROPERTY_JOB_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getUrl() {
-    return url;
+  public String getJobId() {
+    return jobId;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_URL, required = true)
+  @JsonProperty(value = JSON_PROPERTY_JOB_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUrl(@jakarta.annotation.Nonnull String url) {
-    this.url = url;
+  public void setJobId(@jakarta.annotation.Nonnull String jobId) {
+    this.jobId = jobId;
   }
 
 
-  public CreatePdfResponse filename(@jakarta.annotation.Nonnull String filename) {
-    this.filename = filename;
+  public CreateAsyncPdfResponse status(@jakarta.annotation.Nonnull JobStatus status) {
+    this.status = status;
     return this;
   }
 
   /**
-   * Filename of the generated PDF
-   * @return filename
+   * Initial job status (always &#39;pending&#39;)
+   * @return status
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(value = JSON_PROPERTY_FILENAME, required = true)
+  @JsonProperty(value = JSON_PROPERTY_STATUS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getFilename() {
-    return filename;
+  public JobStatus getStatus() {
+    return status;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_FILENAME, required = true)
+  @JsonProperty(value = JSON_PROPERTY_STATUS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFilename(@jakarta.annotation.Nonnull String filename) {
-    this.filename = filename;
+  public void setStatus(@jakarta.annotation.Nonnull JobStatus status) {
+    this.status = status;
   }
 
 
-  public CreatePdfResponse creditsRemaining(@jakarta.annotation.Nonnull Integer creditsRemaining) {
+  public CreateAsyncPdfResponse creditsRemaining(@jakarta.annotation.Nonnull Integer creditsRemaining) {
     this.creditsRemaining = creditsRemaining;
     return this;
   }
@@ -131,32 +127,8 @@ public class CreatePdfResponse {
   }
 
 
-  public CreatePdfResponse expiresIn(@jakarta.annotation.Nonnull Integer expiresIn) {
-    this.expiresIn = expiresIn;
-    return this;
-  }
-
   /**
-   * Seconds until URL expires
-   * @return expiresIn
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(value = JSON_PROPERTY_EXPIRES_IN, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Integer getExpiresIn() {
-    return expiresIn;
-  }
-
-
-  @JsonProperty(value = JSON_PROPERTY_EXPIRES_IN, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExpiresIn(@jakarta.annotation.Nonnull Integer expiresIn) {
-    this.expiresIn = expiresIn;
-  }
-
-
-  /**
-   * Return true if this CreatePdfResponse object is equal to o.
+   * Return true if this CreateAsyncPdfResponse object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -166,26 +138,24 @@ public class CreatePdfResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreatePdfResponse createPdfResponse = (CreatePdfResponse) o;
-    return Objects.equals(this.url, createPdfResponse.url) &&
-        Objects.equals(this.filename, createPdfResponse.filename) &&
-        Objects.equals(this.creditsRemaining, createPdfResponse.creditsRemaining) &&
-        Objects.equals(this.expiresIn, createPdfResponse.expiresIn);
+    CreateAsyncPdfResponse createAsyncPdfResponse = (CreateAsyncPdfResponse) o;
+    return Objects.equals(this.jobId, createAsyncPdfResponse.jobId) &&
+        Objects.equals(this.status, createAsyncPdfResponse.status) &&
+        Objects.equals(this.creditsRemaining, createAsyncPdfResponse.creditsRemaining);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(url, filename, creditsRemaining, expiresIn);
+    return Objects.hash(jobId, status, creditsRemaining);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreatePdfResponse {\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
-    sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
+    sb.append("class CreateAsyncPdfResponse {\n");
+    sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    creditsRemaining: ").append(toIndentedString(creditsRemaining)).append("\n");
-    sb.append("    expiresIn: ").append(toIndentedString(expiresIn)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -233,24 +203,19 @@ public class CreatePdfResponse {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `url` to the URL query string
-    if (getUrl() != null) {
-      joiner.add(String.format(java.util.Locale.ROOT, "%surl%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getUrl()))));
+    // add `job_id` to the URL query string
+    if (getJobId() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sjob_id%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getJobId()))));
     }
 
-    // add `filename` to the URL query string
-    if (getFilename() != null) {
-      joiner.add(String.format(java.util.Locale.ROOT, "%sfilename%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getFilename()))));
+    // add `status` to the URL query string
+    if (getStatus() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sstatus%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getStatus()))));
     }
 
     // add `credits_remaining` to the URL query string
     if (getCreditsRemaining() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%scredits_remaining%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getCreditsRemaining()))));
-    }
-
-    // add `expires_in` to the URL query string
-    if (getExpiresIn() != null) {
-      joiner.add(String.format(java.util.Locale.ROOT, "%sexpires_in%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getExpiresIn()))));
     }
 
     return joiner.toString();

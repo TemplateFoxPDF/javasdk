@@ -13,23 +13,20 @@
 
 package com.templatefox.sdk.model;
 
-import com.fasterxml.jackson.annotation.JsonTypeName;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for LocationInner
+ * Model tests for AppRoutersV1PdfExportType
  */
-class LocationInnerTest {
-    private final LocationInner model = new LocationInner();
-
+class AppRoutersV1PdfExportTypeTest {
     /**
-     * Model tests for LocationInner
+     * Model tests for AppRoutersV1PdfExportType
      */
     @Test
-    void testLocationInner() {
-        // TODO: test LocationInner
+    void testAppRoutersV1PdfExportType() {
+        // TODO: test AppRoutersV1PdfExportType
     }
 
 }

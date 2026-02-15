@@ -18,7 +18,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.templatefox.sdk.model.AppRoutersV1PdfExportType;
+import com.templatefox.sdk.model.AppRoutersV1PdfAsyncExportType;
+import java.net.URI;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -31,17 +32,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for CreatePdfRequest
+ * Model tests for CreateAsyncPdfRequest
  */
-class CreatePdfRequestTest {
-    private final CreatePdfRequest model = new CreatePdfRequest();
+class CreateAsyncPdfRequestTest {
+    private final CreateAsyncPdfRequest model = new CreateAsyncPdfRequest();
 
     /**
-     * Model tests for CreatePdfRequest
+     * Model tests for CreateAsyncPdfRequest
      */
     @Test
-    void testCreatePdfRequest() {
-        // TODO: test CreatePdfRequest
+    void testCreateAsyncPdfRequest() {
+        // TODO: test CreateAsyncPdfRequest
     }
 
     /**
@@ -106,6 +107,22 @@ class CreatePdfRequestTest {
     @Test
     void s3BucketTest() {
         // TODO: test s3Bucket
+    }
+
+    /**
+     * Test the property 'webhookUrl'
+     */
+    @Test
+    void webhookUrlTest() {
+        // TODO: test webhookUrl
+    }
+
+    /**
+     * Test the property 'webhookSecret'
+     */
+    @Test
+    void webhookSecretTest() {
+        // TODO: test webhookSecret
     }
 
 }

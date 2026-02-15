@@ -13,23 +13,20 @@
 
 package com.templatefox.sdk.model;
 
-import com.fasterxml.jackson.annotation.JsonTypeName;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for LocationInner
+ * Model tests for JobStatus
  */
-class LocationInnerTest {
-    private final LocationInner model = new LocationInner();
-
+class JobStatusTest {
     /**
-     * Model tests for LocationInner
+     * Model tests for JobStatus
      */
     @Test
-    void testLocationInner() {
-        // TODO: test LocationInner
+    void testJobStatus() {
+        // TODO: test JobStatus
     }
 
 }

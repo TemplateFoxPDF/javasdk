@@ -24,7 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.templatefox.sdk.model.AppRoutersV1PdfExportType;
+import com.templatefox.sdk.model.AppRoutersV1PdfAsyncExportType;
+import java.net.URI;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -37,20 +38,22 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import com.templatefox.sdk.ApiClient;
 /**
- * Request model for PDF generation
+ * Request model for async PDF generation
  */
 @JsonPropertyOrder({
-  CreatePdfRequest.JSON_PROPERTY_TEMPLATE_ID,
-  CreatePdfRequest.JSON_PROPERTY_DATA,
-  CreatePdfRequest.JSON_PROPERTY_EXPORT_TYPE,
-  CreatePdfRequest.JSON_PROPERTY_EXPIRATION,
-  CreatePdfRequest.JSON_PROPERTY_FILENAME,
-  CreatePdfRequest.JSON_PROPERTY_STORE_S3,
-  CreatePdfRequest.JSON_PROPERTY_S3_FILEPATH,
-  CreatePdfRequest.JSON_PROPERTY_S3_BUCKET
+  CreateAsyncPdfRequest.JSON_PROPERTY_TEMPLATE_ID,
+  CreateAsyncPdfRequest.JSON_PROPERTY_DATA,
+  CreateAsyncPdfRequest.JSON_PROPERTY_EXPORT_TYPE,
+  CreateAsyncPdfRequest.JSON_PROPERTY_EXPIRATION,
+  CreateAsyncPdfRequest.JSON_PROPERTY_FILENAME,
+  CreateAsyncPdfRequest.JSON_PROPERTY_STORE_S3,
+  CreateAsyncPdfRequest.JSON_PROPERTY_S3_FILEPATH,
+  CreateAsyncPdfRequest.JSON_PROPERTY_S3_BUCKET,
+  CreateAsyncPdfRequest.JSON_PROPERTY_WEBHOOK_URL,
+  CreateAsyncPdfRequest.JSON_PROPERTY_WEBHOOK_SECRET
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
-public class CreatePdfRequest {
+public class CreateAsyncPdfRequest {
   public static final String JSON_PROPERTY_TEMPLATE_ID = "template_id";
   @jakarta.annotation.Nonnull
   private String templateId;
@@ -61,7 +64,7 @@ public class CreatePdfRequest {
 
   public static final String JSON_PROPERTY_EXPORT_TYPE = "export_type";
   @jakarta.annotation.Nullable
-  private AppRoutersV1PdfExportType exportType = AppRoutersV1PdfExportType.URL;
+  private AppRoutersV1PdfAsyncExportType exportType = AppRoutersV1PdfAsyncExportType.URL;
 
   public static final String JSON_PROPERTY_EXPIRATION = "expiration";
   @jakarta.annotation.Nullable
@@ -80,10 +83,16 @@ public class CreatePdfRequest {
   public static final String JSON_PROPERTY_S3_BUCKET = "s3_bucket";
   private JsonNullable<String> s3Bucket = JsonNullable.<String>undefined();
 
-  public CreatePdfRequest() { 
+  public static final String JSON_PROPERTY_WEBHOOK_URL = "webhook_url";
+  private JsonNullable<URI> webhookUrl = JsonNullable.<URI>undefined();
+
+  public static final String JSON_PROPERTY_WEBHOOK_SECRET = "webhook_secret";
+  private JsonNullable<String> webhookSecret = JsonNullable.<String>undefined();
+
+  public CreateAsyncPdfRequest() { 
   }
 
-  public CreatePdfRequest templateId(@jakarta.annotation.Nonnull String templateId) {
+  public CreateAsyncPdfRequest templateId(@jakarta.annotation.Nonnull String templateId) {
     this.templateId = templateId;
     return this;
   }
@@ -107,12 +116,12 @@ public class CreatePdfRequest {
   }
 
 
-  public CreatePdfRequest data(@jakarta.annotation.Nonnull Map<String, Object> data) {
+  public CreateAsyncPdfRequest data(@jakarta.annotation.Nonnull Map<String, Object> data) {
     this.data = data;
     return this;
   }
 
-  public CreatePdfRequest putDataItem(String key, Object dataItem) {
+  public CreateAsyncPdfRequest putDataItem(String key, Object dataItem) {
     if (this.data == null) {
       this.data = new HashMap<>();
     }
@@ -121,7 +130,7 @@ public class CreatePdfRequest {
   }
 
   /**
-   * **Required.** Key-value data to render in the template. Keys must match template variables.
+   * **Required.** Key-value data to render in the template.
    * @return data
    */
   @jakarta.annotation.Nonnull
@@ -139,37 +148,37 @@ public class CreatePdfRequest {
   }
 
 
-  public CreatePdfRequest exportType(@jakarta.annotation.Nullable AppRoutersV1PdfExportType exportType) {
+  public CreateAsyncPdfRequest exportType(@jakarta.annotation.Nullable AppRoutersV1PdfAsyncExportType exportType) {
     this.exportType = exportType;
     return this;
   }
 
   /**
-   * Export format: &#x60;url&#x60; uploads to CDN and returns URL, &#x60;binary&#x60; returns raw PDF bytes
+   * Export format. Currently only &#x60;url&#x60; is supported for async.
    * @return exportType
    */
   @jakarta.annotation.Nullable
   @JsonProperty(value = JSON_PROPERTY_EXPORT_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public AppRoutersV1PdfExportType getExportType() {
+  public AppRoutersV1PdfAsyncExportType getExportType() {
     return exportType;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_EXPORT_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExportType(@jakarta.annotation.Nullable AppRoutersV1PdfExportType exportType) {
+  public void setExportType(@jakarta.annotation.Nullable AppRoutersV1PdfAsyncExportType exportType) {
     this.exportType = exportType;
   }
 
 
-  public CreatePdfRequest expiration(@jakarta.annotation.Nullable Integer expiration) {
+  public CreateAsyncPdfRequest expiration(@jakarta.annotation.Nullable Integer expiration) {
     this.expiration = expiration;
     return this;
   }
 
   /**
-   * URL expiration in seconds. Min: 60 (1 min), Max: 604800 (7 days). Only applies to &#x60;url&#x60; export type.
+   * URL expiration in seconds (60-604800). Default: 86400 (24 hours).
    * minimum: 60
    * maximum: 604800
    * @return expiration
@@ -189,7 +198,7 @@ public class CreatePdfRequest {
   }
 
 
-  public CreatePdfRequest filename(@jakarta.annotation.Nullable String filename) {
+  public CreateAsyncPdfRequest filename(@jakarta.annotation.Nullable String filename) {
     this.filename = JsonNullable.<String>of(filename);
     return this;
   }
@@ -221,13 +230,13 @@ public class CreatePdfRequest {
   }
 
 
-  public CreatePdfRequest storeS3(@jakarta.annotation.Nullable Boolean storeS3) {
+  public CreateAsyncPdfRequest storeS3(@jakarta.annotation.Nullable Boolean storeS3) {
     this.storeS3 = storeS3;
     return this;
   }
 
   /**
-   * Upload to your configured S3 bucket instead of CDN
+   * Upload to your configured S3 bucket instead of CDN.
    * @return storeS3
    */
   @jakarta.annotation.Nullable
@@ -245,7 +254,7 @@ public class CreatePdfRequest {
   }
 
 
-  public CreatePdfRequest s3Filepath(@jakarta.annotation.Nullable String s3Filepath) {
+  public CreateAsyncPdfRequest s3Filepath(@jakarta.annotation.Nullable String s3Filepath) {
     this.s3Filepath = JsonNullable.<String>of(s3Filepath);
     return this;
   }
@@ -277,7 +286,7 @@ public class CreatePdfRequest {
   }
 
 
-  public CreatePdfRequest s3Bucket(@jakarta.annotation.Nullable String s3Bucket) {
+  public CreateAsyncPdfRequest s3Bucket(@jakarta.annotation.Nullable String s3Bucket) {
     this.s3Bucket = JsonNullable.<String>of(s3Bucket);
     return this;
   }
@@ -309,8 +318,72 @@ public class CreatePdfRequest {
   }
 
 
+  public CreateAsyncPdfRequest webhookUrl(@jakarta.annotation.Nullable URI webhookUrl) {
+    this.webhookUrl = JsonNullable.<URI>of(webhookUrl);
+    return this;
+  }
+
   /**
-   * Return true if this CreatePdfRequest object is equal to o.
+   * Get webhookUrl
+   * @return webhookUrl
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public URI getWebhookUrl() {
+        return webhookUrl.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_WEBHOOK_URL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<URI> getWebhookUrl_JsonNullable() {
+    return webhookUrl;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WEBHOOK_URL)
+  public void setWebhookUrl_JsonNullable(JsonNullable<URI> webhookUrl) {
+    this.webhookUrl = webhookUrl;
+  }
+
+  public void setWebhookUrl(@jakarta.annotation.Nullable URI webhookUrl) {
+    this.webhookUrl = JsonNullable.<URI>of(webhookUrl);
+  }
+
+
+  public CreateAsyncPdfRequest webhookSecret(@jakarta.annotation.Nullable String webhookSecret) {
+    this.webhookSecret = JsonNullable.<String>of(webhookSecret);
+    return this;
+  }
+
+  /**
+   * Get webhookSecret
+   * @return webhookSecret
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getWebhookSecret() {
+        return webhookSecret.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_WEBHOOK_SECRET, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getWebhookSecret_JsonNullable() {
+    return webhookSecret;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WEBHOOK_SECRET)
+  public void setWebhookSecret_JsonNullable(JsonNullable<String> webhookSecret) {
+    this.webhookSecret = webhookSecret;
+  }
+
+  public void setWebhookSecret(@jakarta.annotation.Nullable String webhookSecret) {
+    this.webhookSecret = JsonNullable.<String>of(webhookSecret);
+  }
+
+
+  /**
+   * Return true if this CreateAsyncPdfRequest object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -320,15 +393,17 @@ public class CreatePdfRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreatePdfRequest createPdfRequest = (CreatePdfRequest) o;
-    return Objects.equals(this.templateId, createPdfRequest.templateId) &&
-        Objects.equals(this.data, createPdfRequest.data) &&
-        Objects.equals(this.exportType, createPdfRequest.exportType) &&
-        Objects.equals(this.expiration, createPdfRequest.expiration) &&
-        equalsNullable(this.filename, createPdfRequest.filename) &&
-        Objects.equals(this.storeS3, createPdfRequest.storeS3) &&
-        equalsNullable(this.s3Filepath, createPdfRequest.s3Filepath) &&
-        equalsNullable(this.s3Bucket, createPdfRequest.s3Bucket);
+    CreateAsyncPdfRequest createAsyncPdfRequest = (CreateAsyncPdfRequest) o;
+    return Objects.equals(this.templateId, createAsyncPdfRequest.templateId) &&
+        Objects.equals(this.data, createAsyncPdfRequest.data) &&
+        Objects.equals(this.exportType, createAsyncPdfRequest.exportType) &&
+        Objects.equals(this.expiration, createAsyncPdfRequest.expiration) &&
+        equalsNullable(this.filename, createAsyncPdfRequest.filename) &&
+        Objects.equals(this.storeS3, createAsyncPdfRequest.storeS3) &&
+        equalsNullable(this.s3Filepath, createAsyncPdfRequest.s3Filepath) &&
+        equalsNullable(this.s3Bucket, createAsyncPdfRequest.s3Bucket) &&
+        equalsNullable(this.webhookUrl, createAsyncPdfRequest.webhookUrl) &&
+        equalsNullable(this.webhookSecret, createAsyncPdfRequest.webhookSecret);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -337,7 +412,7 @@ public class CreatePdfRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(templateId, data, exportType, expiration, hashCodeNullable(filename), storeS3, hashCodeNullable(s3Filepath), hashCodeNullable(s3Bucket));
+    return Objects.hash(templateId, data, exportType, expiration, hashCodeNullable(filename), storeS3, hashCodeNullable(s3Filepath), hashCodeNullable(s3Bucket), hashCodeNullable(webhookUrl), hashCodeNullable(webhookSecret));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -350,7 +425,7 @@ public class CreatePdfRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreatePdfRequest {\n");
+    sb.append("class CreateAsyncPdfRequest {\n");
     sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    exportType: ").append(toIndentedString(exportType)).append("\n");
@@ -359,6 +434,8 @@ public class CreatePdfRequest {
     sb.append("    storeS3: ").append(toIndentedString(storeS3)).append("\n");
     sb.append("    s3Filepath: ").append(toIndentedString(s3Filepath)).append("\n");
     sb.append("    s3Bucket: ").append(toIndentedString(s3Bucket)).append("\n");
+    sb.append("    webhookUrl: ").append(toIndentedString(webhookUrl)).append("\n");
+    sb.append("    webhookSecret: ").append(toIndentedString(webhookSecret)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -448,6 +525,16 @@ public class CreatePdfRequest {
     // add `s3_bucket` to the URL query string
     if (getS3Bucket() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%ss3_bucket%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getS3Bucket()))));
+    }
+
+    // add `webhook_url` to the URL query string
+    if (getWebhookUrl() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%swebhook_url%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getWebhookUrl()))));
+    }
+
+    // add `webhook_secret` to the URL query string
+    if (getWebhookSecret() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%swebhook_secret%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getWebhookSecret()))));
     }
 
     return joiner.toString();

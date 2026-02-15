@@ -18,34 +18,48 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.templatefox.sdk.model.TemplateListItem;
-import java.util.ArrayList;
+import com.templatefox.sdk.model.JobStatus;
 import java.util.Arrays;
-import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for TemplatesListResponse
+ * Model tests for CreateAsyncPdfResponse
  */
-class TemplatesListResponseTest {
-    private final TemplatesListResponse model = new TemplatesListResponse();
+class CreateAsyncPdfResponseTest {
+    private final CreateAsyncPdfResponse model = new CreateAsyncPdfResponse();
 
     /**
-     * Model tests for TemplatesListResponse
+     * Model tests for CreateAsyncPdfResponse
      */
     @Test
-    void testTemplatesListResponse() {
-        // TODO: test TemplatesListResponse
+    void testCreateAsyncPdfResponse() {
+        // TODO: test CreateAsyncPdfResponse
     }
 
     /**
-     * Test the property 'templates'
+     * Test the property 'jobId'
      */
     @Test
-    void templatesTest() {
-        // TODO: test templates
+    void jobIdTest() {
+        // TODO: test jobId
+    }
+
+    /**
+     * Test the property 'status'
+     */
+    @Test
+    void statusTest() {
+        // TODO: test status
+    }
+
+    /**
+     * Test the property 'creditsRemaining'
+     */
+    @Test
+    void creditsRemainingTest() {
+        // TODO: test creditsRemaining
     }
 
 }

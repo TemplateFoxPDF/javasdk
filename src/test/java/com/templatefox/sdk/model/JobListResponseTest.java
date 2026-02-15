@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.templatefox.sdk.model.TemplateListItem;
+import com.templatefox.sdk.model.JobStatusResponse;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -27,25 +27,49 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for TemplatesListResponse
+ * Model tests for JobListResponse
  */
-class TemplatesListResponseTest {
-    private final TemplatesListResponse model = new TemplatesListResponse();
+class JobListResponseTest {
+    private final JobListResponse model = new JobListResponse();
 
     /**
-     * Model tests for TemplatesListResponse
+     * Model tests for JobListResponse
      */
     @Test
-    void testTemplatesListResponse() {
-        // TODO: test TemplatesListResponse
+    void testJobListResponse() {
+        // TODO: test JobListResponse
     }
 
     /**
-     * Test the property 'templates'
+     * Test the property 'jobs'
      */
     @Test
-    void templatesTest() {
-        // TODO: test templates
+    void jobsTest() {
+        // TODO: test jobs
+    }
+
+    /**
+     * Test the property 'total'
+     */
+    @Test
+    void totalTest() {
+        // TODO: test total
+    }
+
+    /**
+     * Test the property 'limit'
+     */
+    @Test
+    void limitTest() {
+        // TODO: test limit
+    }
+
+    /**
+     * Test the property 'offset'
+     */
+    @Test
+    void offsetTest() {
+        // TODO: test offset
     }
 
 }
