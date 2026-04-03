@@ -26,17 +26,19 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * PDF export type options
+ * PDF variant for standards-compliant output (PDF/A).
  */
-public enum AppRoutersV1PdfExportType {
+public enum PdfVariant {
   
-  URL("url"),
+  PDF_A_1B("pdf/a-1b"),
   
-  BINARY("binary");
+  PDF_A_2B("pdf/a-2b"),
+  
+  PDF_A_3B("pdf/a-3b");
 
   private String value;
 
-  AppRoutersV1PdfExportType(String value) {
+  PdfVariant(String value) {
     this.value = value;
   }
 
@@ -51,8 +53,8 @@ public enum AppRoutersV1PdfExportType {
   }
 
   @JsonCreator
-  public static AppRoutersV1PdfExportType fromValue(String value) {
-    for (AppRoutersV1PdfExportType b : AppRoutersV1PdfExportType.values()) {
+  public static PdfVariant fromValue(String value) {
+    for (PdfVariant b : PdfVariant.values()) {
       if (b.value.equals(value)) {
         return b;
       }

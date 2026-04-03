@@ -18,15 +18,15 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for AppRoutersV1PdfExportType
+ * Model tests for PdfVariant
  */
-class AppRoutersV1PdfExportTypeTest {
+class PdfVariantTest {
     /**
-     * Model tests for AppRoutersV1PdfExportType
+     * Model tests for PdfVariant
      */
     @Test
-    void testAppRoutersV1PdfExportType() {
-        // TODO: test AppRoutersV1PdfExportType
+    void testPdfVariant() {
+        // TODO: test PdfVariant
     }
 
 }
