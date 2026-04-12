@@ -24,33 +24,25 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for S3TestResponse
+ * Model tests for SetDefaultVersionRequest
  */
-class S3TestResponseTest {
-    private final S3TestResponse model = new S3TestResponse();
+class SetDefaultVersionRequestTest {
+    private final SetDefaultVersionRequest model = new SetDefaultVersionRequest();
 
     /**
-     * Model tests for S3TestResponse
+     * Model tests for SetDefaultVersionRequest
      */
     @Test
-    void testS3TestResponse() {
-        // TODO: test S3TestResponse
+    void testSetDefaultVersionRequest() {
+        // TODO: test SetDefaultVersionRequest
     }
 
     /**
-     * Test the property 'success'
+     * Test the property 'versionNumber'
      */
     @Test
-    void successTest() {
-        // TODO: test success
-    }
-
-    /**
-     * Test the property 'message'
-     */
-    @Test
-    void messageTest() {
-        // TODO: test message
+    void versionNumberTest() {
+        // TODO: test versionNumber
     }
 
 }

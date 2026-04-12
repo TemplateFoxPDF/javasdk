@@ -34,82 +34,89 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import com.templatefox.sdk.ApiClient;
 /**
- * Response for account info endpoint
+ * Request to create a version snapshot
  */
 @JsonPropertyOrder({
-  AccountInfoResponse.JSON_PROPERTY_CREDITS,
-  AccountInfoResponse.JSON_PROPERTY_EMAIL
+  CreateVersionRequest.JSON_PROPERTY_TAG,
+  CreateVersionRequest.JSON_PROPERTY_DESCRIPTION
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
-public class AccountInfoResponse {
-  public static final String JSON_PROPERTY_CREDITS = "credits";
-  @jakarta.annotation.Nonnull
-  private Integer credits;
+public class CreateVersionRequest {
+  public static final String JSON_PROPERTY_TAG = "tag";
+  private JsonNullable<String> tag = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_EMAIL = "email";
-  private JsonNullable<String> email = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private JsonNullable<String> description = JsonNullable.<String>undefined();
 
-  public AccountInfoResponse() { 
+  public CreateVersionRequest() { 
   }
 
-  public AccountInfoResponse credits(@jakarta.annotation.Nonnull Integer credits) {
-    this.credits = credits;
+  public CreateVersionRequest tag(@jakarta.annotation.Nullable String tag) {
+    this.tag = JsonNullable.<String>of(tag);
     return this;
   }
 
   /**
-   * Remaining credits
-   * @return credits
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(value = JSON_PROPERTY_CREDITS, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Integer getCredits() {
-    return credits;
-  }
-
-
-  @JsonProperty(value = JSON_PROPERTY_CREDITS, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCredits(@jakarta.annotation.Nonnull Integer credits) {
-    this.credits = credits;
-  }
-
-
-  public AccountInfoResponse email(@jakarta.annotation.Nullable String email) {
-    this.email = JsonNullable.<String>of(email);
-    return this;
-  }
-
-  /**
-   * Get email
-   * @return email
+   * Get tag
+   * @return tag
    */
   @jakarta.annotation.Nullable
   @JsonIgnore
-  public String getEmail() {
-        return email.orElse(null);
+  public String getTag() {
+        return tag.orElse(null);
   }
 
-  @JsonProperty(value = JSON_PROPERTY_EMAIL, required = false)
+  @JsonProperty(value = JSON_PROPERTY_TAG, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<String> getEmail_JsonNullable() {
-    return email;
+  public JsonNullable<String> getTag_JsonNullable() {
+    return tag;
   }
   
-  @JsonProperty(JSON_PROPERTY_EMAIL)
-  public void setEmail_JsonNullable(JsonNullable<String> email) {
-    this.email = email;
+  @JsonProperty(JSON_PROPERTY_TAG)
+  public void setTag_JsonNullable(JsonNullable<String> tag) {
+    this.tag = tag;
   }
 
-  public void setEmail(@jakarta.annotation.Nullable String email) {
-    this.email = JsonNullable.<String>of(email);
+  public void setTag(@jakarta.annotation.Nullable String tag) {
+    this.tag = JsonNullable.<String>of(tag);
+  }
+
+
+  public CreateVersionRequest description(@jakarta.annotation.Nullable String description) {
+    this.description = JsonNullable.<String>of(description);
+    return this;
+  }
+
+  /**
+   * Get description
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getDescription() {
+        return description.orElse(null);
+  }
+
+  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getDescription_JsonNullable() {
+    return description;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  public void setDescription_JsonNullable(JsonNullable<String> description) {
+    this.description = description;
+  }
+
+  public void setDescription(@jakarta.annotation.Nullable String description) {
+    this.description = JsonNullable.<String>of(description);
   }
 
 
   /**
-   * Return true if this AccountInfoResponse object is equal to o.
+   * Return true if this CreateVersionRequest object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -119,9 +126,9 @@ public class AccountInfoResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AccountInfoResponse accountInfoResponse = (AccountInfoResponse) o;
-    return Objects.equals(this.credits, accountInfoResponse.credits) &&
-        equalsNullable(this.email, accountInfoResponse.email);
+    CreateVersionRequest createVersionRequest = (CreateVersionRequest) o;
+    return equalsNullable(this.tag, createVersionRequest.tag) &&
+        equalsNullable(this.description, createVersionRequest.description);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -130,7 +137,7 @@ public class AccountInfoResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(credits, hashCodeNullable(email));
+    return Objects.hash(hashCodeNullable(tag), hashCodeNullable(description));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -143,9 +150,9 @@ public class AccountInfoResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AccountInfoResponse {\n");
-    sb.append("    credits: ").append(toIndentedString(credits)).append("\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("class CreateVersionRequest {\n");
+    sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -190,14 +197,14 @@ public class AccountInfoResponse {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `credits` to the URL query string
-    if (getCredits() != null) {
-      joiner.add(String.format(java.util.Locale.ROOT, "%scredits%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getCredits()))));
+    // add `tag` to the URL query string
+    if (getTag() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%stag%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getTag()))));
     }
 
-    // add `email` to the URL query string
-    if (getEmail() != null) {
-      joiner.add(String.format(java.util.Locale.ROOT, "%semail%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getEmail()))));
+    // add `description` to the URL query string
+    if (getDescription() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sdescription%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getDescription()))));
     }
 
     return joiner.toString();

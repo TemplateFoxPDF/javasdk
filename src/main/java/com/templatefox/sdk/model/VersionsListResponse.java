@@ -24,81 +24,63 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.templatefox.sdk.model.VersionItem;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 import com.templatefox.sdk.ApiClient;
 /**
- * Response for S3 connection test
+ * Response for versions list
  */
 @JsonPropertyOrder({
-  S3TestResponse.JSON_PROPERTY_SUCCESS,
-  S3TestResponse.JSON_PROPERTY_MESSAGE
+  VersionsListResponse.JSON_PROPERTY_VERSIONS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
-public class S3TestResponse {
-  public static final String JSON_PROPERTY_SUCCESS = "success";
+public class VersionsListResponse {
+  public static final String JSON_PROPERTY_VERSIONS = "versions";
   @jakarta.annotation.Nonnull
-  private Boolean success;
+  private List<VersionItem> versions = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_MESSAGE = "message";
-  @jakarta.annotation.Nonnull
-  private String message;
-
-  public S3TestResponse() { 
+  public VersionsListResponse() { 
   }
 
-  public S3TestResponse success(@jakarta.annotation.Nonnull Boolean success) {
-    this.success = success;
+  public VersionsListResponse versions(@jakarta.annotation.Nonnull List<VersionItem> versions) {
+    this.versions = versions;
+    return this;
+  }
+
+  public VersionsListResponse addVersionsItem(VersionItem versionsItem) {
+    if (this.versions == null) {
+      this.versions = new ArrayList<>();
+    }
+    this.versions.add(versionsItem);
     return this;
   }
 
   /**
-   * Whether the connection test succeeded
-   * @return success
+   * Get versions
+   * @return versions
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(value = JSON_PROPERTY_SUCCESS, required = true)
+  @JsonProperty(value = JSON_PROPERTY_VERSIONS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Boolean getSuccess() {
-    return success;
+  public List<VersionItem> getVersions() {
+    return versions;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_SUCCESS, required = true)
+  @JsonProperty(value = JSON_PROPERTY_VERSIONS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSuccess(@jakarta.annotation.Nonnull Boolean success) {
-    this.success = success;
-  }
-
-
-  public S3TestResponse message(@jakarta.annotation.Nonnull String message) {
-    this.message = message;
-    return this;
-  }
-
-  /**
-   * Test result message
-   * @return message
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getMessage() {
-    return message;
-  }
-
-
-  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setMessage(@jakarta.annotation.Nonnull String message) {
-    this.message = message;
+  public void setVersions(@jakarta.annotation.Nonnull List<VersionItem> versions) {
+    this.versions = versions;
   }
 
 
   /**
-   * Return true if this S3TestResponse object is equal to o.
+   * Return true if this VersionsListResponse object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -108,22 +90,20 @@ public class S3TestResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    S3TestResponse s3TestResponse = (S3TestResponse) o;
-    return Objects.equals(this.success, s3TestResponse.success) &&
-        Objects.equals(this.message, s3TestResponse.message);
+    VersionsListResponse versionsListResponse = (VersionsListResponse) o;
+    return Objects.equals(this.versions, versionsListResponse.versions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(success, message);
+    return Objects.hash(versions);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class S3TestResponse {\n");
-    sb.append("    success: ").append(toIndentedString(success)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("class VersionsListResponse {\n");
+    sb.append("    versions: ").append(toIndentedString(versions)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -168,14 +148,14 @@ public class S3TestResponse {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `success` to the URL query string
-    if (getSuccess() != null) {
-      joiner.add(String.format(java.util.Locale.ROOT, "%ssuccess%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getSuccess()))));
-    }
-
-    // add `message` to the URL query string
-    if (getMessage() != null) {
-      joiner.add(String.format(java.util.Locale.ROOT, "%smessage%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getMessage()))));
+    // add `versions` to the URL query string
+    if (getVersions() != null) {
+      for (int i = 0; i < getVersions().size(); i++) {
+        if (getVersions().get(i) != null) {
+          joiner.add(getVersions().get(i).toUrlQueryString(String.format(java.util.Locale.ROOT, "%sversions%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
     }
 
     return joiner.toString();

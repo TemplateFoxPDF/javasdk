@@ -28,57 +28,49 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for Transaction
+ * Model tests for VersionItem
  */
-class TransactionTest {
-    private final Transaction model = new Transaction();
+class VersionItemTest {
+    private final VersionItem model = new VersionItem();
 
     /**
-     * Model tests for Transaction
+     * Model tests for VersionItem
      */
     @Test
-    void testTransaction() {
-        // TODO: test Transaction
+    void testVersionItem() {
+        // TODO: test VersionItem
     }
 
     /**
-     * Test the property 'transactionRef'
+     * Test the property 'versionNumber'
      */
     @Test
-    void transactionRefTest() {
-        // TODO: test transactionRef
+    void versionNumberTest() {
+        // TODO: test versionNumber
     }
 
     /**
-     * Test the property 'transactionType'
+     * Test the property 'tag'
      */
     @Test
-    void transactionTypeTest() {
-        // TODO: test transactionType
+    void tagTest() {
+        // TODO: test tag
     }
 
     /**
-     * Test the property 'templateId'
+     * Test the property 'description'
      */
     @Test
-    void templateIdTest() {
-        // TODO: test templateId
+    void descriptionTest() {
+        // TODO: test description
     }
 
     /**
-     * Test the property 'execTm'
+     * Test the property 'isDefault'
      */
     @Test
-    void execTmTest() {
-        // TODO: test execTm
-    }
-
-    /**
-     * Test the property 'credits'
-     */
-    @Test
-    void creditsTest() {
-        // TODO: test credits
+    void isDefaultTest() {
+        // TODO: test isDefault
     }
 
     /**

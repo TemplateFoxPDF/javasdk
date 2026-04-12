@@ -1,6 +1,6 @@
 # TemplateFox Java SDK
 
-Official Java SDK for [TemplateFox](https://pdftemplateapi.com) - Generate PDFs from HTML templates via API.
+Official Java SDK for [TemplateFox](https://templatefox.com) - Generate PDFs from HTML templates via API.
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.templatefoxpdf/sdk/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.templatefoxpdf/sdk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -143,7 +143,7 @@ System.out.println("Connection: " + (test.getSuccess() ? "OK" : "Failed"));
 
 ```java
 ApiClient client = new ApiClient();
-client.setBasePath("https://api.pdftemplateapi.com");  // Default API URL
+client.setBasePath("https://api.templatefox.com");  // Default API URL
 client.setApiKey("your-api-key");
 
 // Or use environment variable
@@ -176,13 +176,13 @@ try {
 
 ## Documentation
 
-- [API Documentation](https://pdftemplateapi.com/docs)
-- [Swagger UI](https://api.pdftemplateapi.com/docs)
-- [Dashboard](https://pdftemplateapi.com/dashboard)
+- [API Documentation](https://templatefox.com/docs)
+- [Swagger UI](https://api.templatefox.com/docs)
+- [Dashboard](https://templatefox.com/dashboard)
 
 ## Support
 
-- Email: support@pdftemplateapi.com
+- Email: support@templatefox.com
 - Issues: [GitHub Issues](https://github.com/TemplateFoxPDF/javasdk/issues)
 
 ## License

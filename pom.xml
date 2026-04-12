@@ -5,7 +5,7 @@
     <artifactId>sdk</artifactId>
     <packaging>jar</packaging>
     <name>sdk</name>
-    <version>1.7.0</version>
+    <version>1.8.0</version>
     <url>https://github.com/TemplateFoxPDF/javasdk</url>
     <description>Official TemplateFox Java SDK - Generate PDFs from HTML templates</description>
     <scm>
@@ -25,9 +25,9 @@
     <developers>
         <developer>
             <name>TemplateFox</name>
-            <email>support@pdftemplateapi.com</email>
+            <email>support@templatefox.com</email>
             <organization>TemplateFox</organization>
-            <organizationUrl>https://pdftemplateapi.com</organizationUrl>
+            <organizationUrl>https://templatefox.com</organizationUrl>
         </developer>
     </developers>
 

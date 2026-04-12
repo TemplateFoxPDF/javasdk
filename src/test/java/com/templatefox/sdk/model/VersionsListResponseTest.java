@@ -18,39 +18,34 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.templatefox.sdk.model.VersionItem;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for S3TestResponse
+ * Model tests for VersionsListResponse
  */
-class S3TestResponseTest {
-    private final S3TestResponse model = new S3TestResponse();
+class VersionsListResponseTest {
+    private final VersionsListResponse model = new VersionsListResponse();
 
     /**
-     * Model tests for S3TestResponse
+     * Model tests for VersionsListResponse
      */
     @Test
-    void testS3TestResponse() {
-        // TODO: test S3TestResponse
+    void testVersionsListResponse() {
+        // TODO: test VersionsListResponse
     }
 
     /**
-     * Test the property 'success'
+     * Test the property 'versions'
      */
     @Test
-    void successTest() {
-        // TODO: test success
-    }
-
-    /**
-     * Test the property 'message'
-     */
-    @Test
-    void messageTest() {
-        // TODO: test message
+    void versionsTest() {
+        // TODO: test versions
     }
 
 }

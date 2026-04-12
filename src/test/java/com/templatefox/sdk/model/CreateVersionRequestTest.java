@@ -19,38 +19,42 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for S3TestResponse
+ * Model tests for CreateVersionRequest
  */
-class S3TestResponseTest {
-    private final S3TestResponse model = new S3TestResponse();
+class CreateVersionRequestTest {
+    private final CreateVersionRequest model = new CreateVersionRequest();
 
     /**
-     * Model tests for S3TestResponse
+     * Model tests for CreateVersionRequest
      */
     @Test
-    void testS3TestResponse() {
-        // TODO: test S3TestResponse
+    void testCreateVersionRequest() {
+        // TODO: test CreateVersionRequest
     }
 
     /**
-     * Test the property 'success'
+     * Test the property 'tag'
      */
     @Test
-    void successTest() {
-        // TODO: test success
+    void tagTest() {
+        // TODO: test tag
     }
 
     /**
-     * Test the property 'message'
+     * Test the property 'description'
      */
     @Test
-    void messageTest() {
-        // TODO: test message
+    void descriptionTest() {
+        // TODO: test description
     }
 
 }
